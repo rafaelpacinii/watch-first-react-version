@@ -1,7 +1,7 @@
 import { PosterCarousel } from "../PosterCarousel";
 import { Container } from "./styles";
 
-export function Intro() {
+export function IntroSection() {
   return (
     <Container>
       <div className="text-container">
