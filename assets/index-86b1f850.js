@@ -113,7 +113,7 @@ Error generating stack: `+o.message+`
       }
     }
   }
-`,Rm="/assets/logo-c55fea15.svg";function Om(){return W.jsxs($m,{children:[W.jsx("a",{href:"",children:W.jsxs("h1",{children:[W.jsx("img",{src:Rm,alt:"Logo"}),"Watch First"]})}),W.jsx("nav",{children:W.jsxs("ul",{children:[W.jsx("li",{children:W.jsx("a",{href:"",children:"Catálogo"})}),W.jsx("li",{children:W.jsx("a",{href:"",children:"Testar Gratuitamente"})}),W.jsx("li",{children:W.jsx("a",{href:"",children:"Entrar"})})]})})]})}const Lm=Dr.a`
+`,Rm="/watch-first-react-version/assets/logo-c55fea15.svg";function Om(){return W.jsxs($m,{children:[W.jsx("a",{href:"",children:W.jsxs("h1",{children:[W.jsx("img",{src:Rm,alt:"Logo"}),"Watch First"]})}),W.jsx("nav",{children:W.jsxs("ul",{children:[W.jsx("li",{children:W.jsx("a",{href:"",children:"Catálogo"})}),W.jsx("li",{children:W.jsx("a",{href:"",children:"Testar Gratuitamente"})}),W.jsx("li",{children:W.jsx("a",{href:"",children:"Entrar"})})]})})]})}const Lm=Dr.a`
   max-width: 350px;
   max-height: 514.4px;
   padding: 0.5rem;
