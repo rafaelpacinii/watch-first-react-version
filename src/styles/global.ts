@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
@@ -40,15 +40,9 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
-	body {
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-			Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-		padding: 0, 2rem;
-		margin: 0;
-	}
-
 	body, input, textarea, button {
-        font-family: 'Poppins', sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+			Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-weight: 400;
     }
 
@@ -64,4 +58,10 @@ export const GlobalStyle = createGlobalStyle`
     button {
         cursor: pointer;
     }
+`;
+
+export const GradientBackground = styled.div`
+  background: var(--grey);
+  background: var(--gradient-background);
+  padding: 0 2rem;
 `;
