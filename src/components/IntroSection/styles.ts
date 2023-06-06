@@ -51,4 +51,19 @@ export const Container = styled.section`
       }
     }
   }
+
+  @media (max-width: 925px) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    .text-container {
+      text-align: center;
+      margin-bottom: 4rem;
+
+      .buttons-container {
+        margin: 0 auto;
+      }
+    }
+  }
 `;

@@ -32,6 +32,7 @@ export const Container = styled.header`
   }
 
   nav {
+    display: block;
     width: 375px;
 
     ul {
@@ -56,6 +57,20 @@ export const Container = styled.header`
           }
         }
       }
+    }
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  @media (max-width: 665px) {
+    .menu-button {
+      display: block;
+    }
+
+    nav {
+      display: none;
     }
   }
 `;
