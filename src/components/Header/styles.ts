@@ -44,7 +44,7 @@ export const Container = styled.header`
 
       li:last-child {
         & a {
-          padding: 0.15rem 0.25rem;
+          padding: 0.15rem 0.5rem;
           border-radius: 4px;
           background-color: var(--orange);
 
