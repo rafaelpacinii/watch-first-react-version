@@ -1,4 +1,5 @@
 import { BenefitsSection } from "./components/BenefitsSection";
+import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { IntroSection } from "./components/IntroSection";
 
@@ -14,6 +15,7 @@ export function App() {
       </GradientBackground>
 
       <BenefitsSection />
+      <Footer />
       <GlobalStyle />
     </>
   );
