@@ -11,4 +11,4 @@
 
 ## Implementação
 
-    Prototipado inicialmente no Figma, o projeto é bem simples e possui apenas duas páginas. A página inicial, que é basicamente uma landing page com algumas ações sendo elas: ir para a segunda página (catálogo), abrir um modal de login e por fim abrir um modal de registro e com os dois últimos sendo ações meramente visuais. Já na página de catálogo, temos a integração da api do [The Movie Database](https://developer.themoviedb.org/docs) que serve como base para a página.
+Prototipado inicialmente no Figma, o projeto é bem simples e possui apenas duas páginas. A página inicial, que é basicamente uma landing page com algumas ações sendo elas: ir para a segunda página (catálogo), abrir um modal de login e por fim abrir um modal de registro e com os dois últimos sendo ações meramente visuais. Já na página de catálogo, temos a integração da api do [The Movie Database](https://developer.themoviedb.org/docs) que serve como base para a página.
