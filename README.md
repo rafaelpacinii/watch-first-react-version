@@ -1,6 +1,6 @@
 # Sobre o projeto
 
-> Esta é a versão 2 de um projeto que fiz inicialmente em HTML, CSS e Javascript. Tanto esse quanto o anterior foram feitos com o intuito de colocar em prática novas tecnologias aprendidas
+> Esta é a versão 2 de um projeto que fiz inicialmente em HTML, CSS e Javascript ([clique aqui](https://developer.themoviedb.org/docs) para ver). Tanto esse quanto o anterior foram feitos com o intuito de colocar em prática novas tecnologias aprendidas
 
 ## Ferramentas escolhidas
 
