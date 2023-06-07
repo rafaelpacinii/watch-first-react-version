@@ -8,6 +8,7 @@ export const Container = styled.header`
   align-items: center;
 
   a {
+    cursor: pointer;
     margin-right: auto;
     color: var(--white);
     text-decoration: none;
@@ -98,6 +99,7 @@ export const NonMobileNav = styled.nav`
 
 export const MobileNav = styled.nav`
   a {
+    cursor: pointer;
     color: var(--white);
     text-decoration: none;
 
