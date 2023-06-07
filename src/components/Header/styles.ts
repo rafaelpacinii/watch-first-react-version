@@ -6,9 +6,9 @@ export const Container = styled.header`
   padding: 1rem 0 7rem 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   a {
+    margin-right: auto;
     color: var(--white);
     text-decoration: none;
 
@@ -31,21 +31,35 @@ export const Container = styled.header`
     }
   }
 
-  nav {
+  .menu-button {
+    display: none;
+  }
+
+  @media (max-width: 665px) {
+    .menu-button {
+      display: block;
+      position: absolute;
+      right: 1.25rem;
+      top: 1rem;
+      z-index: 1000;
+    }
+  }
+`;
+
+export const CommonNavStyles = styled.div`
+  .mobile-navbar,
+  .non-mobile-navbar {
     display: block;
-    width: 375px;
 
     ul {
+      display: flex;
+      align-items: center;
       padding: 0;
       list-style-type: none;
       font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
 
       li:last-child {
         & a {
-          padding: 0.15rem 0.5rem;
           border-radius: 4px;
           background-color: var(--orange);
 
@@ -59,17 +73,71 @@ export const Container = styled.header`
       }
     }
   }
+`;
 
-  .menu-button {
-    display: none;
+export const NonMobileNav = styled.nav`
+  &.non-mobile-navbar {
+    width: 375px;
+    ul {
+      justify-content: space-between;
+
+      li:last-child {
+        & a {
+          padding: 0.15rem 0.5rem;
+        }
+      }
+    }
   }
 
   @media (max-width: 665px) {
-    .menu-button {
-      display: block;
+    &.non-mobile-navbar {
+      display: none;
     }
+  }
+`;
 
-    nav {
+export const MobileNav = styled.nav`
+  a {
+    color: var(--white);
+    text-decoration: none;
+
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--light-orange);
+    }
+  }
+
+  &.mobile-navbar {
+    max-width: 275px;
+
+    ul {
+      flex-flow: row wrap;
+      text-align: center;
+
+      li {
+        flex-basis: 100%;
+        border-top: 1px solid var(--white);
+        display: flex;
+
+        &:first-child {
+          margin-top: 3rem;
+        }
+
+        &:last-child {
+          padding-top: 1rem;
+        }
+
+        a {
+          flex-basis: 100%;
+          padding: 1rem 0.5rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 665px) {
+    &.mobile-navbar {
       display: none;
     }
   }
