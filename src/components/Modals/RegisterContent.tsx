@@ -7,7 +7,7 @@ import {
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { Container, Content } from "./styles";
-import { LoginContext, RegisterContext } from "../../routes/Home";
+import { LoginContext, RegisterContext } from "../../App";
 
 export function RegisterContent() {
   const [, setRegisterModalIsOpen] = useContext(RegisterContext);

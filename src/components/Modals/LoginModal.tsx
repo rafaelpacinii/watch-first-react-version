@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Modal from "react-modal";
-import { LoginContext } from "../../routes/Home";
+import { LoginContext } from "../../App";
 import { LoginContent } from "./LoginContent";
 
 Modal.setAppElement("#root");

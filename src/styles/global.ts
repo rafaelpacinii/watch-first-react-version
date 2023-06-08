@@ -63,5 +63,8 @@ export const GlobalStyle = createGlobalStyle`
 export const GradientBackground = styled.div`
   background: var(--grey);
   background: var(--gradient-background);
-  padding: 0 2rem;
+`;
+
+export const Padding = styled.div`
+    padding: 0 2rem;
 `;

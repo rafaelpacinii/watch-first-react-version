@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 4rem 2rem;
+  background-color: var(--white);
 `;
 
 export const Content = styled.div`
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 4rem 2rem;
   text-align: center;
+
   h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;

@@ -38,7 +38,7 @@ export function PosterCarousel() {
   }
 
   return (
-    <Container href="">
+    <Container href="/catalog">
       <Content>
         <img src={currentSource} alt={currentName} />
         <h3>Clique e veja os novos lançamentos disponíveis para você!</h3>

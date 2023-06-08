@@ -7,16 +7,18 @@ import { ErrorPage } from "./routes/ErrorPage";
 
 const router = createBrowserRouter([
   {
-    path: "/watch-first-react-version/",
+    path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/watch-first-react-version/", element: <Home /> },
-      { path: "/watch-first-react-version/catalog", element: <Catalog /> },
+      { path: "/", element: <Home /> },
+      { path: "/catalog", element: <Catalog /> },
     ],
   },
 ]);
 
 const container = document.getElementById("root");
 const root = createRoot(container!); // eslint-disable-line @typescript-eslint/no-non-null-assertion
-root.render(<RouterProvider router={router} />);
+root.render(
+    <RouterProvider router={router} />
+);
