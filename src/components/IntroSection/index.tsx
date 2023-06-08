@@ -1,7 +1,12 @@
 import { PosterCarousel } from "../PosterCarousel";
 import { Container } from "./styles";
+import { LoginContext, RegisterContext } from "../../App";
+import { useContext } from "react";
 
 export function IntroSection() {
+  const [, setLoginModalIsOpen] = useContext(LoginContext);
+  const [, setRegisterModalIsOpen] = useContext(RegisterContext);
+
   return (
     <Container>
       <div className="text-container">
@@ -11,9 +16,25 @@ export function IntroSection() {
           tempo recorde após a exibição nos cinemas.
         </p>
         <div className="buttons-container">
-          <button type="button">Já possui uma conta? Entre</button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setLoginModalIsOpen(true);
+            }}
+          >
+            Já possui uma conta? Entre
+          </button>
           <p className="default-p">ou</p>
-          <button type="button">Registre-se</button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              setRegisterModalIsOpen(true);
+            }}
+          >
+            Registre-se
+          </button>
         </div>
       </div>
       <PosterCarousel />

@@ -1,11 +1,14 @@
 import { MobileNavigation } from "./MobileNavigation";
 import { NonMobileNavigation } from "./NonMobileNavigation";
 
-export function NavBar() {
-  return (
-    <div>
-      <MobileNavigation />
-      <NonMobileNavigation />
-    </div>
+interface DeviceProps {
+  currentDevice: string;
+}
+
+export function NavBar({ currentDevice }: DeviceProps) {
+  return currentDevice == "desktop" ? (
+    <NonMobileNavigation />
+  ) : (
+    <MobileNavigation />
   );
 }

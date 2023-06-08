@@ -4,17 +4,27 @@ import Hamburger from "hamburger-react";
 import logo from "../../assets/logo.svg";
 import { NavBar } from "./NavBar";
 
-export const MenuContext = createContext<[boolean, (isOpen:boolean) => void]>(
-  {} as [boolean, (isOpen:boolean) => void]
+export const MenuContext = createContext<[boolean, (isOpen: boolean) => void]>(
+  {} as [boolean, (isOpen: boolean) => void]
 );
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [device, setDevice] = useState(
+    window.innerWidth > 665 ? "desktop" : "mobile"
+  );
+
+  const buttonPosition = isOpen ? "fixed" : "absolute";
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 665) {
+      setDevice("desktop");
+    } else {
+      setDevice("mobile");
+    }
+  });
 
   return (
-    <MenuContext.Provider
-      value={[isOpen, setIsOpen]}
-    >
+    <MenuContext.Provider value={[isOpen, setIsOpen]}>
       <Container>
         <a href="">
           <h1>
@@ -23,7 +33,7 @@ export function Header() {
           </h1>
         </a>
 
-        <div className="menu-button">
+        <div className={"menu-button " + buttonPosition}>
           <Hamburger
             toggled={isOpen}
             toggle={setIsOpen}
@@ -31,7 +41,7 @@ export function Header() {
             size={28}
           />
         </div>
-        <NavBar />
+        <NavBar currentDevice={device} />
       </Container>
     </MenuContext.Provider>
   );

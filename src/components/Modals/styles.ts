@@ -74,7 +74,9 @@ export const Content = styled.div`
   }
 
   a {
-    color: var(--orange);
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--light-orange);
     text-decoration: none;
 
     &:hover {
@@ -98,5 +100,9 @@ export const Content = styled.div`
     &:hover {
       filter: brightness(1.3);
     }
+  }
+
+  p {
+    font-weight: 100;
   }
 `;

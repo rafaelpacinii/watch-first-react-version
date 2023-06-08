@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faEnvelope, faClose } from "@fortawesome/free-solid-svg-icons";
 import { Container, Content } from "./styles";
-import { LoginContext } from "../Header/NavLinks";
+import { LoginContext, RegisterContext } from "../../App";
 
 export function LoginContent() {
   const [, setLoginModalIsOpen] = useContext(LoginContext);
-
+  const [, setRegisterModalIsOpen] = useContext(RegisterContext);
   return (
     <Container>
       <button
@@ -32,11 +32,17 @@ export function LoginContent() {
         </div>
         <a href="#">Esqueci meus dados de login.</a>
         <button type="button">Entrar</button>
-        <div className="change-form">
-          <p>
-            É novo por aqui? <a href="#">Registre-se.</a>
-          </p>
-        </div>
+        <p>
+          É novo por aqui?{" "}
+          <a 
+            onClick={() => {
+              setLoginModalIsOpen(false);
+              setRegisterModalIsOpen(true);
+            }}
+          >
+            Registre-se.
+          </a>
+        </p>
       </Content>
     </Container>
   );

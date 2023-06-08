@@ -39,10 +39,15 @@ export const Container = styled.header`
   @media (max-width: 665px) {
     .menu-button {
       display: block;
-      position: absolute;
       right: 1.25rem;
-      top: 1rem;
+      top: 0.5rem;
       z-index: 1000;
+    }
+    .fixed {
+      position: fixed;
+    }
+    .absolute {
+      position: absolute;
     }
   }
 `;

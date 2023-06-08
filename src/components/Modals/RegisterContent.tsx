@@ -7,10 +7,11 @@ import {
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { Container, Content } from "./styles";
-import { RegisterContext } from "../Header/NavLinks";
+import { LoginContext, RegisterContext } from "../../App";
 
 export function RegisterContent() {
   const [, setRegisterModalIsOpen] = useContext(RegisterContext);
+  const [, setLoginModalIsOpen] = useContext(LoginContext);
 
   return (
     <Container>
@@ -41,14 +42,17 @@ export function RegisterContent() {
           <label htmlFor="">Senha</label>
         </div>
         <button type="button">Continuar</button>
-        <div className="change-form">
-          <p>
-            Já é da casa?{" "}
-            <a href="#login" className="to-overlay-form underline">
-              Entre.
-            </a>
-          </p>
-        </div>
+        <p>
+          Já é da casa?{" "}
+          <a
+            onClick={() => {
+              setRegisterModalIsOpen(false);
+              setLoginModalIsOpen(true);
+            }}
+          >
+            Entre.
+          </a>
+        </p>
       </Content>
     </Container>
   );
