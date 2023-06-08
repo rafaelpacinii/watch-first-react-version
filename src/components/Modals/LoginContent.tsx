@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faEnvelope, faClose } from "@fortawesome/free-solid-svg-icons";
 import { Container, Content } from "./styles";
-import { LoginContext, RegisterContext } from "../../App";
+import { LoginContext, RegisterContext } from "../../routes/Home";
 
 export function LoginContent() {
   const [, setLoginModalIsOpen] = useContext(LoginContext);

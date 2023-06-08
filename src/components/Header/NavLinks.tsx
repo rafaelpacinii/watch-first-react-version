@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LoginContext, RegisterContext } from "../../App";
+import { LoginContext, RegisterContext } from "../../routes/Home";
 import { MenuContext } from ".";
 
 export function NavLinks() {
@@ -10,7 +10,7 @@ export function NavLinks() {
   return (
     <ul>
       <li>
-        <a href="">Catálogo</a>
+        <a href="/watch-first-react-version/catalog">Catálogo</a>
       </li>
       <li>
         <a

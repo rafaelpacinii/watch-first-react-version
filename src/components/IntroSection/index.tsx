@@ -1,6 +1,6 @@
 import { PosterCarousel } from "../PosterCarousel";
 import { Container } from "./styles";
-import { LoginContext, RegisterContext } from "../../App";
+import { LoginContext, RegisterContext } from "../../routes/Home";
 import { useContext } from "react";
 
 export function IntroSection() {
