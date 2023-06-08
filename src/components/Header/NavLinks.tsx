@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { LoginModal } from "../Modals/LoginModal";
-import { RegisterModal } from "../Modals/RegisterModal";
 import { LoginContext, RegisterContext } from "../../App";
+import { MenuContext } from ".";
 
 export function NavLinks() {
+  const [, setMenuIsOpen] = useContext(MenuContext);
   const [, setLoginModalIsOpen] = useContext(LoginContext);
   const [, setRegisterModalIsOpen] = useContext(RegisterContext);
 
@@ -16,23 +16,23 @@ export function NavLinks() {
         <a
           onClick={(e) => {
             e.preventDefault();
+            setMenuIsOpen(false);
             setRegisterModalIsOpen(true);
           }}
         >
           Testar Gratuitamente
         </a>
-        <RegisterModal />
       </li>
       <li>
         <a
           onClick={(e) => {
             e.preventDefault();
+            setMenuIsOpen(false);
             setLoginModalIsOpen(true);
           }}
         >
           Entrar
         </a>
-        <LoginModal />
       </li>
     </ul>
   );
