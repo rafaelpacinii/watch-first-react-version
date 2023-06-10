@@ -1,10 +1,9 @@
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { CatalogContent } from "../components/CatalogContent";
 
 export function Catalog() {
-  return (<>
-      <Header />
-      <Footer />
-    </>)
-  ;
+  return (
+    <>
+      <CatalogContent />
+    </>
+  );
 }
