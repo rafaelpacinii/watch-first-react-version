@@ -18,7 +18,6 @@ interface PageContextProps {
   };
   setCurrentPage: (currentPage: {
     number: number;
-    finalListIndex: number;
     apiListIndex: number;
   }) => void;
 }
@@ -40,7 +39,6 @@ export function Catalog() {
   const [currentFilters, setCurrentFilters] = useState<number[]>([12, 28]);
   const [currentPage, setCurrentPage] = useState({
     number: 1,
-    finalListIndex: 0,
     apiListIndex: 0,
   });
 

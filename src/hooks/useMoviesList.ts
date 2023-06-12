@@ -25,7 +25,7 @@ interface MoviesListProps {
 }
 
 export function useMoviesList() {
-  const { currentPage } = useContext(PageContext);
+  const { currentPage, setCurrentPage } = useContext(PageContext);
   const { currentOrdenation } = useContext(OrdenationContext);
   const { currentFilters } = useContext(FiltersContext);
   const [moviesList, setMoviesList] = useState<MoviesListProps[]>([]);
@@ -40,13 +40,13 @@ export function useMoviesList() {
           await getNonFilteredMoviesList(currentPage, currentOrdenation)
         );
       } else {
-        setMoviesList(
-          await getFilteredMoviesList(
-            currentPage,
-            currentOrdenation,
-            currentFilters
-          )
+        const {filteredMoviesList, page} = await getFilteredMoviesList(
+          currentPage,
+          currentOrdenation,
+          currentFilters
         );
+        setMoviesList(filteredMoviesList);
+        setCurrentPage(page);
       }
       setStatus("loaded");
     }
