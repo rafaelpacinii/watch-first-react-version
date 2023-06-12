@@ -1,16 +1,22 @@
-interface MovieProps {
+import { useState } from "react";
+
+interface useMoviePosterProps {
   posterPath: string;
   posterWidth: string;
 }
 
-export function getMoviePoster({ posterPath, posterWidth }: MovieProps) {
-  let posterWidthPx;
+export function useMoviePoster({
+  posterPath,
+  posterWidth,
+}: useMoviePosterProps) {
+  const [posterWidthPx, setPosterWidthPx] = useState("0");
+  
   if (posterWidth == "small") {
-    posterWidthPx = "92";
+    setPosterWidthPx("92");
   } else if (posterWidth == "medium") {
-    posterWidthPx = "185";
+    setPosterWidthPx("185");
   } else {
-    posterWidthPx = "342";
+    setPosterWidthPx("342");
   }
 
   const posterResult = `https://image.tmdb.org/t/p/w${posterWidthPx}${posterPath}`;

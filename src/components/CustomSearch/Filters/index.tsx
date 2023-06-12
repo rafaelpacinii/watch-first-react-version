@@ -1,4 +1,4 @@
-import { useGenresList } from "../../hooks/useGenresList";
+import { useGenresList } from "../../../hooks/useGenresList";
 import { Container } from "./styles";
 
 interface FiltersProps {
@@ -7,15 +7,15 @@ interface FiltersProps {
 
 export function Filters({ show }: FiltersProps) {
   const { genresList, status } = useGenresList();
-  console.log(genresList);
+
   if (status == "loaded") {
     return (
-      <Container style={{ display: show ? "block" : "flex" }}>
+      <Container style={{ display: show ? "flex" : "none" }}>
         <legend>Gêneros</legend>
-        {genresList.map((genres) => (
-          <div key={genres.id}>
-            <input key={genres.id} id={"" + genres.id} type="checkbox" />
-            <label key={genres.name} htmlFor={"" + genres.id}>
+        {genresList.map((genres, index) => (
+          <div key={index+100}>
+            <input key={index} id={"" + genres.id} type="checkbox" />
+            <label key={index+1000} htmlFor={"" + genres.id}>
               {genres.name}
             </label>
           </div>

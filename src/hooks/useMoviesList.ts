@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
-
-interface useMoviesListProps {
-  pageNumber: number;
-  listBy: string;
-}
+import { useEffect, useState, useContext } from "react";
+import {
+  PageContext,
+  OrdenationContext,
+  FiltersContext,
+} from "../routes/Catalog";
+import { getNonFilteredMoviesList } from "../services/getNonFilteredMoviesList";
+import { getFilteredMoviesList } from "../services/getFilteredMoviesList";
 
 interface MoviesListProps {
   adult: boolean;
   backdrop_path: TemplateStringsArray;
-  genre_ids: [];
+  genre_ids: number[];
   id: number;
   original_language: string;
   original_title: string;
@@ -22,39 +24,35 @@ interface MoviesListProps {
   vote_count: number;
 }
 
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNGY0Mjg3MDM5MjVmNWM5YWJmODY4M2M0ZTgwNjJmNiIsInN1YiI6IjY0NDliZTM5MmNlZmMyMDUwNGFlODI2ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.52DpnfcAK8Pu1RZfeDXu9reth2-f54h94mpEnOUzuZM",
-  },
-};
-
-export function useMoviesList({
-  pageNumber,
-  listBy,
-}: useMoviesListProps) {
+export function useMoviesList() {
+  const { currentPage } = useContext(PageContext);
+  const { currentOrdenation } = useContext(OrdenationContext);
+  const { currentFilters } = useContext(FiltersContext);
   const [moviesList, setMoviesList] = useState<MoviesListProps[]>([]);
   const [status, setStatus] = useState("unloaded");
 
   useEffect(() => {
-    requestMoviesList();
-
     async function requestMoviesList() {
       setStatus("loading");
       setMoviesList([]);
-      const promisse = await fetch(
-          `https://api.themoviedb.org/3/movie/${listBy}?language=pt-BR&page=${pageNumber}`,
-          options
-        ),
-        processedResponse = await promisse.json(),
-        movies = processedResponse.results;
-
-      setMoviesList(movies);
+      if (currentFilters.length == 0) {
+        setMoviesList(
+          await getNonFilteredMoviesList(currentPage, currentOrdenation)
+        );
+      } else {
+        setMoviesList(
+          await getFilteredMoviesList(
+            currentPage,
+            currentOrdenation,
+            currentFilters
+          )
+        );
+      }
       setStatus("loaded");
     }
-  }, [listBy, pageNumber]);
+
+    requestMoviesList();
+  }, []);
 
   return { moviesList, status };
 }
