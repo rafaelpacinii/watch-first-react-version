@@ -10,7 +10,7 @@ const listBy = [
   { id: "popular", name: "Popularidade" },
   { id: "top_rated", name: "Avaliações" },
   { id: "now_playing", name: "Disponíveis Agora" },
-  { id: "upcoming", name: "Chegando em Breve" },
+  { id: "upcoming", name: "Novidades  " },
 ];
 
 export function OrderBy({ show }: OrderByProps) {

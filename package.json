@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "previous": "vite previous"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.0",

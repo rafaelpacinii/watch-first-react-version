@@ -1,20 +1,29 @@
-import { useMoviesList } from "../../hooks/useMoviesList";
-import { useMoviePoster } from "../../hooks/useMoviePoster";
 import { useContext } from "react";
-import { FiltersContext, PageContext } from "../../routes/Catalog";
-
+import {
+  LoadMoviesContext,
+  PageContext,
+} from "../../routes/Catalog";
 import { Container } from "./styles";
+import { LoadMovies } from "./LoadMovies";
 
 export function Movies() {
-  const { setCurrentFilters } = useContext(FiltersContext);
-  const { moviesList, status } = useMoviesList();
- 
-  console.log(moviesList);
-  console.log(status);
-
+  const { loadMovies, setLoadMovies } = useContext(LoadMoviesContext);
+  const { currentPage } = useContext(PageContext);
+  
   return (
     <Container>
-      <h2></h2>
+      <LoadMovies />
+      <button
+        onClick={() => {
+          setLoadMovies({
+            ordenation: loadMovies.ordenation,
+            currentFilters: loadMovies.currentFilters,
+            page: currentPage,
+          });
+        }}
+      >
+        Próximo
+      </button>
     </Container>
   );
 }

@@ -2,13 +2,23 @@ import { Container } from "./styles";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Filters } from "./Filters";
 import { OrderBy } from "./OrderBy";
+import {
+  LoadMoviesContext,
+  OrdenationContext,
+  FiltersContext,
+  MoviesListContext,
+} from "../../routes/Catalog";
 
 export function CustomSearch() {
   const [isOrderByVisible, setIsOrderByVisible] = useState(false);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
+  const { setLoadMovies } = useContext(LoadMoviesContext);
+  const { currentOrdenation } = useContext(OrdenationContext);
+  const { currentFilters } = useContext(FiltersContext);
+  const { setMoviesList } = useContext(MoviesListContext);
 
   function showContent(
     isVisible: boolean,
@@ -22,7 +32,20 @@ export function CustomSearch() {
   }
 
   return (
-    <Container>
+    <Container
+      onSubmit={(e) => {
+        e.preventDefault();
+        setMoviesList([]);
+        setLoadMovies({
+          ordenation: currentOrdenation,
+          currentFilters: currentFilters,
+          page: {
+            number: 1,
+            apiListIndex: 0,
+          },
+        });
+      }}
+    >
       <div className="custom-search-subtitle-flexbox">
         <h3>Ordenação</h3>
         <button

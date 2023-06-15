@@ -1,21 +1,5 @@
 import { getNonFilteredMoviesList } from "./getNonFilteredMoviesList";
-
-interface MoviesListProps {
-  adult: boolean;
-  backdrop_path: TemplateStringsArray;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: Date;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
+import { MoviesListProps } from "../routes/Catalog";
 
 export async function getFilteredMoviesList(
   currentPage: {
@@ -25,12 +9,24 @@ export async function getFilteredMoviesList(
   currentOrdenation: string,
   currentFilters: number[]
 ) {
+  let listEnd = false;
   let page = currentPage; // eslint-disable-line prefer-const
-  let auxMoviesList = await getNonFilteredMoviesList(page, currentOrdenation);
   let filteredMoviesList: MoviesListProps[] = []; // eslint-disable-line prefer-const
 
-  while (filteredMoviesList.length < 20) {
-    const movieGenres = auxMoviesList[page.apiListIndex].genre_ids;
+  let { nonFilteredMoviesList, newPageNumber } = await getNonFilteredMoviesList(
+    page.number,
+    currentOrdenation
+  );
+
+  page.number = newPageNumber;
+
+  for (let x = 0; x < 20; x = filteredMoviesList.length) {
+    if (nonFilteredMoviesList[page.apiListIndex] === undefined) {
+      listEnd = true;
+      break;
+    }
+
+    const movieGenres = nonFilteredMoviesList[page.apiListIndex].genre_ids;
     let validMovieCounter = 0;
     for (let j = 0; j < currentFilters.length; j++) {
       for (let k = 0; k < movieGenres.length; k++) {
@@ -40,20 +36,29 @@ export async function getFilteredMoviesList(
         }
       }
     }
+
     if (validMovieCounter == currentFilters.length) {
-      filteredMoviesList.push(auxMoviesList[page.apiListIndex]);
+      filteredMoviesList.push(nonFilteredMoviesList[page.apiListIndex]);
     }
 
-    page.apiListIndex ++;
+    page.apiListIndex++;
 
-    if (page.apiListIndex == 20) {
-      page.number++;
+    if (page.apiListIndex == -1 || page.apiListIndex == 20) {
       page.apiListIndex = 0;
-      auxMoviesList = await getNonFilteredMoviesList(page, currentOrdenation);
+
+      ({ nonFilteredMoviesList, newPageNumber } = await getNonFilteredMoviesList(
+        page.number,
+        currentOrdenation
+      ));
+      page.number = newPageNumber;
     }
   }
 
+  console.log(
+    "Current: Number - " + page.number + ", Index - " + page.apiListIndex
+  );
+
   console.log(filteredMoviesList);
 
-  return {filteredMoviesList, page};
+  return { filteredMoviesList, page, listEnd };
 }
