@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  margin-top: auto;
   width: 100%;
   padding: 2rem;
   color: var(--white);

@@ -49,4 +49,8 @@ export const Container = styled.form`
       filter: brightness(1.2);
     }
   }
+
+  @media (max-width: 650px) {
+    width: 100%;
+  }
 `;
