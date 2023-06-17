@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Home /> },
-      { path: "/catalog", element: <Catalog /> },
+      { path: "/watch-first-react-version/", element: <Home /> },
+      { path: "/watch-first-react-version/catalog", element: <Catalog /> },
     ],
   },
 ]);
