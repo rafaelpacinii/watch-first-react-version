@@ -309,7 +309,7 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof e.getDerivedStat
   background: var(--gradient-background);
 `,ns=Be.div`
     padding: 0 2rem;
-`,Pf=O.createContext({});function sS(){const[e,t]=O.useState(!1),[n,r]=O.useState(window.innerWidth>665?"desktop":"mobile"),a=e?"fixed":"absolute";return window.addEventListener("resize",()=>{window.innerWidth>665?r("desktop"):r("mobile")}),x.jsx(Pf.Provider,{value:[e,t],children:x.jsx(ns,{children:x.jsxs(Bx,{children:[x.jsx("a",{href:"/",children:x.jsxs("h1",{children:[x.jsx("img",{src:cg,alt:"Logo"}),"Watch First"]})}),x.jsx("div",{className:"menu-button "+a,children:x.jsx(Yx,{toggled:e,toggle:t,color:"var(--white)",size:28})}),x.jsx(oS,{currentDevice:n})]})})})}const uS=Be.footer`
+`,Pf=O.createContext({});function sS(){const[e,t]=O.useState(!1),[n,r]=O.useState(window.innerWidth>665?"desktop":"mobile"),a=e?"fixed":"absolute";return window.addEventListener("resize",()=>{window.innerWidth>665?r("desktop"):r("mobile")}),x.jsx(Pf.Provider,{value:[e,t],children:x.jsx(ns,{children:x.jsxs(Bx,{children:[x.jsx("a",{href:"/watch-first-react-version/",children:x.jsxs("h1",{children:[x.jsx("img",{src:cg,alt:"Logo"}),"Watch First"]})}),x.jsx("div",{className:"menu-button "+a,children:x.jsx(Yx,{toggled:e,toggle:t,color:"var(--white)",size:28})}),x.jsx(oS,{currentDevice:n})]})})})}const uS=Be.footer`
   margin-top: auto;
   width: 100%;
   padding: 2rem;
